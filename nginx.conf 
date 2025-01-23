@@ -1,0 +1,15 @@
+server {
+    listen 80;
+    server_name localhost;
+
+    # 提供前端靜態檔案
+    location / {
+        root /usr/share/nginx/html;
+        index index.html;
+    }
+
+    # 提供 dataset 檔案
+    location /dataset {
+        root /usr/share/nginx/html;
+    }
+}
