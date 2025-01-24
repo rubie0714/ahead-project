@@ -3,15 +3,19 @@ FROM node:22.12 AS builder
 
 WORKDIR /app
 
+COPY package.json package-lock.json ./
+
+RUN npm install
+
 COPY . .
 
-RUN npm install && npm run build
+RUN npm run build
 
-# Stage 2 (Run)
+# # Stage 2 (Run)
 FROM nginx:alpine
 
+VOLUME [ "/dataset" ]
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=builder /app/dist /usr/share/nginx/html
-
-# 確保靜態資料集檔案也被包含
-COPY dataset /usr/share/nginx/html/dataset

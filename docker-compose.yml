@@ -1,0 +1,7 @@
+services:
+  app:
+    image: rubie870714/ahead-interview:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./dataset:/dataset:ro

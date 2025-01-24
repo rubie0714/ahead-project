@@ -50,10 +50,10 @@
 
 1. 從 Docker Hub 拉取映像檔：
    ```bash
-   docker pull rubie870714/ahead-interview:latest
+   docker compose pull 
 
-2. 執行容器並使用瀏覽器透過指定的 Port 訪問：：
+2. 執行 dockcer compose：
    ```bash
-   docker run -d -p 8080:80 --name ahead-container rubie870714/ahead-interview
+   docker compose up -d
 
-3. 打開瀏覽器，透過 localhost:8080 訪問
+3. 打開瀏覽器，透過 <http://localhost:8080> 訪問
